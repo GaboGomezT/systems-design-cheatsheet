@@ -88,3 +88,37 @@ UserFollow: Each row in the UserFollow table will consist of 8 bytes. If we have
 Total space required for all tables for 10 years will be 3.7TB:
 
 32GB + 1.88TB + 1.82TB ~= 3.7TB
+
+---
+
+## File hosting service like Dropbox
+
+---
+
+Let’s assume that we have 500M total users, and 100M daily active users (DAU).
+Let’s assume that on average each user connects from three different devices.
+On average if a user has 200 files/photos, we will have 100 billion total files.
+Let’s assume that average file size is 100KB, this would give us ten petabytes of total storage.
+100B * 100KB => 10PB
+Let’s also assume that we will have one million active connections per minute.
+
+---
+
+## Instant messaging service like FB Messenger
+
+---
+
+Let’s assume that we have 500 million daily active users, and on average, each user sends 40 messages daily; this gives us 20 billion messages per day.
+
+Storage Estimation: Let’s assume that, on average, a message is 100 bytes. So to store all the messages for one day, we would need 2TB of storage.
+
+20 billion messages * 100 bytes => 2 TB/day
+To store five years of chat history, we would need 3.6 petabytes of storage.
+
+2 TB * 365 days * 5 years ~= 3.6 PB
+Besides chat messages, we also need to store users’ information, messages’ metadata (ID, Timestamp, etc.). Not to mention, the above calculation doesn’t take data compression and replication into consideration.
+
+Bandwidth Estimation: If our service is getting 2TB of data every day, this will give us 25MB of incoming data for each second.
+
+2 TB / 86400 sec ~= 25 MB/s
+Since each incoming message needs to go out to another user, we will need the same amount of bandwidth 25MB/s for both upload and download.
